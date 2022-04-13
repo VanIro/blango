@@ -8,13 +8,16 @@ logger = logging.getLogger(__name__)
 
 from blog.models import Post
 
+
 register = template.Library()
 
 @register.filter
 def author_details(author,current_user=None):
-  #print
-  if not  isinstance(author,User):# and isinstance(current_user,User) ):
+  #print("---------------")
+  from blango_auth.models import User as blango_auth_User
+  if not  isinstance(author,blango_auth_User):# and isinstance(current_user,User) ):
     return " "
+  
   
   if author==current_user:
     return format_html("<strong>me</strong>")
@@ -30,7 +33,6 @@ def author_details(author,current_user=None):
   else:
       prefix = ""
       suffix = ""
-  
   return format_html('{}{}{}', prefix, name, suffix)
 
 @register.simple_tag(takes_context=True)
