@@ -1,0 +1,1 @@
+Activate your Blango Account! {{expiration_days}} left till this link expires.
