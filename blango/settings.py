@@ -114,6 +114,12 @@ class Dev(Configuration):
       'allauth.socialaccount.providers.google',
       'rest_framework',
   ]
+  # REST_FRAMEWORK = {
+  #   'DEFAULT_RENDERER_CLASSES': [
+  #       #'rest_framework.renderers.JSONRenderer',
+  #       'rest_framework.renderers.BrowsableAPIRenderer',
+  #   ]
+  # }
 
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
