@@ -9,7 +9,7 @@ class PostList(generics.ListCreateAPIView):
   queryset = Post.objects.all()
   serializer_class = PostSerializer
 
-
+from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
   permission_classes = [AuthorModifyOrReadOnly | IsAdminUserForObject]
   queryset = Post.objects.all()

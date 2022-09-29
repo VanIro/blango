@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     fields = ["first_name","last_name","email"]
 
 class CommentSerializer(serializers.ModelSerializer):
-  id= serializers.PositiveIntegerField(required=False)
+  id= serializers.IntegerField(required=False)
   creator = UserSerializer(read_only=True)
 
   class Meta:
