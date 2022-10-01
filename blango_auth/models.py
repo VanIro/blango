@@ -18,7 +18,7 @@ class BlangoUserManager(UserManager):
     def create_user(self, email, password=None,**kwargs):
         kwargs.setdefault("is_staff",False)
         kwargs.setdefault("is_superuser",False)
-        return self._create(email, password, **extra_fields)
+        return self._create_user(email, password, **kwargs)
 
     def create_superuser(self, email, password=None,**kwargs):
         kwargs.setdefault("is_staff",True)
