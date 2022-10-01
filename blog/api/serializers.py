@@ -29,7 +29,7 @@ class CommentSerializer(serializers.ModelSerializer):
     read_only = ["modified_at", "created_at"]
 
 class PostSerializer(serializers.ModelSerializer):
-  tags=serializers.SlugRelatedField(
+  tags=TagField(
     slug_field="value", many=True, queryset=Tag.objects.all()
   )
 
