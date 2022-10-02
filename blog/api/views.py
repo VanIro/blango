@@ -44,6 +44,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
   def get_serializer_class(self):
     if self.action in ("list","create"):
+      # print("Heereee hai",self.action)
       return PostSerializer
     return PostDetailSerializer
 
@@ -68,6 +69,10 @@ class PostViewSet(viewsets.ModelViewSet):
   @method_decorator(vary_on_headers("Authorization","Cookie"))
   def list(self, *args, **kwargs):
       return super(PostViewSet, self).list(*args, **kwargs)
+
+  def create(self, *args, **kwargs):
+    # print("In create",args,kwargs)
+    return super(PostViewSet, self).create(*args, **kwargs)
 
   def get_queryset(self):
     if self.request.user.is_anonymous:

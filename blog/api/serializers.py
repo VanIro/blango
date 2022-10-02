@@ -4,6 +4,7 @@ from blango_auth.models import User
 
 class TagField(serializers.SlugRelatedField):
   def to_internalize_value(self,data):
+    print(">>-----<<",data)
     try:
       return self.queryset.get_or_create(value=data.lower())[0]
     except:
